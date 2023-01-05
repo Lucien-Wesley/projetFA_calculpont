@@ -1,0 +1,77 @@
+<ResultScreen>:
+    name: 'resultscreen'
+
+    MDGridLayout:
+        cols: 1
+        md_bg_color: app.theme_cls.bg_normal
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDLabel:
+                text: "Resultats"
+                font_size: dp(20)
+                size_hint_y: .2
+                color: .3, .55, .7, 1
+                halign: "center"
+                bold: True
+            MDBoxLayout:
+                Carousel:
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: "Dessin"
+                            font_size: dp(20)
+                            size_hint_y: .2
+                            color: .3, .55, .7, 1
+                            halign: "center"
+                            bold: True
+                        MDLabel:
+                            text: app.dessin
+                            #halign: "center"
+                            #font_size: dp(20)
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: "Calculs"
+                            font_size: dp(20)
+                            size_hint_y: .2
+                            color: .3, .55, .7, 1
+                            halign: "center"
+                            bold: True
+                        #ScrollView:
+                        MDBoxLayout:
+                            id: calc
+                            size_hint: 1, 1
+                            #adaptive_height: True
+                            #height: dp(500)
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: "Graphique Prix en fonction de la hauteur, distance, diagonal"
+                            font_size: dp(20)
+                            size_hint_y: .2
+                            color: .3, .55, .7, 1
+                            halign: "center"
+                            bold: True
+                        #ScrollView:
+                        MDBoxLayout:
+                            MDBoxLayout:
+                                orientation: 'vertical'
+                                MDBoxLayout:
+                                    Image:
+                                        id: graph
+                                        source: "graph.png"
+                                        allow_stretch: True
+
+            MDFloatLayout:
+                size_hint_y: .1
+                MDFillRoundFlatButton:
+                    text: "    Retour    "
+                    font_name: "Goth.ttf"
+                    font_size: "16sp" #if root.width < 700 else "24sp" if root.width < 950 else "36sp"
+                    pos_hint: {"center_x":.095,"center_y":.5}
+                    halign: "center"
+                    md_bg_color: .8, .2, .2, 1
+                    theme_text_color: "Custom"
+                    text_color: 253/255, 206/255, 160/255, 1
+                    on_press: app.switch_screen("modelscreen")
+

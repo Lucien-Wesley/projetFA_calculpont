@@ -1,0 +1,127 @@
+#: import sqrt  math.sqrt
+
+<ModelScreen>:
+    name: 'modelscreen'
+
+    MDGridLayout:
+        cols: 1
+        md_bg_color: app.theme_cls.bg_normal
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDLabel:
+                text: "Entrer les informations necessaires pour le calcul"
+                font_size: dp(20)
+                size_hint_y: .2
+                color: .3, .55, .7, 1
+                halign: "center"
+                bold: True
+            MDFloatLayout:
+                MDLabel:
+                    text: "NB: Entrer les valeurs doivent etre celles d'un seul treillis "
+                    halign: "center"
+                    pos_hint: {"center_x":.5,"center_y":.963}
+                MDLabel:
+                    text: "Longeur du pont en m "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.86}
+                MDTextFieldRect:
+                    id: long
+                    text: "12"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.86}
+                MDLabel:
+                    text: "Charge maximale "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.76}
+                MDTextFieldRect:
+                    id: charge
+                    text: "30"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.76}
+                MDLabel:
+                    text: "Traction maximale "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.66}
+                MDTextFieldRect:
+                    id: tract
+                    text: "9"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.66}
+                MDLabel:
+                    text: "Compression maximale "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.56}
+                MDTextFieldRect:
+                    id: compr
+                    text: "6"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.56}
+                MDLabel:
+                    text: "Distance entre les noeuds "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.46}
+                MDTextFieldRect:
+                    id: dist
+                    text: "1"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.46}
+                MDLabel:
+                    text: "Hauteur "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.36}
+                MDTextFieldRect:
+                    id: haut
+                    text: "1"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.36}
+                MDLabel:
+                    text: "Prix barre/m "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.26}
+                MDTextFieldRect:
+                    id: prixb
+                    text: "15"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.26}
+                MDLabel:
+                    text: "Prix gousset "
+                    halign: "center"
+                    pos_hint: {"center_x":.305,"center_y":.16}
+                MDTextFieldRect:
+                    id: prixc
+                    text: "5"
+                    size_hint: .3, None
+                    height: dp(30)
+                    pos_hint: {"center_x":.695,"center_y":.16}
+            MDFloatLayout:
+                size_hint_y: .1
+
+                MDFillRoundFlatButton:
+                    text: "    CALCULER    "
+                    font_name: "Goth.ttf"
+                    font_size: "16sp" #if root.width < 700 else "24sp" if root.width < 950 else "36sp"
+                    pos_hint: {"center_x":.905,"center_y":.5}
+                    halign: "center"
+                    md_bg_color: .2, .8, .2, 1
+                    theme_text_color: "Custom"
+                    text_color: 253/255, 206/255, 160/255, 1
+                    on_press: app.resultscreen.calcul(charge.text, long.text, dist.text, haut.text, tract.text,compr.text,prixb.text)
+
+                MDFillRoundFlatButton:
+                    text: "    Retour    "
+                    font_name: "Goth.ttf"
+                    font_size: "16sp" #if root.width < 700 else "24sp" if root.width < 950 else "36sp"
+                    pos_hint: {"center_x":.095,"center_y":.5}
+                    halign: "center"
+                    md_bg_color: .8, .2, .2, 1
+                    theme_text_color: "Custom"
+                    text_color: 253/255, 206/255, 160/255, 1
+                    on_press: app.switch_screen("mainscreen")
+

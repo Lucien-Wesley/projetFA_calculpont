@@ -1,0 +1,38 @@
+<Presplash>:
+    name: 'presplash'
+
+    MDFloatLayout:
+		md_bg_color: 1, 1, 1, 1
+		canvas.before:
+		    Color:
+		        rgb: 1, 1, 1
+		    Rectangle:
+		        source: "bg.png"
+		        pos: self.pos
+		        size: self.size
+		MDLabel:
+			text: "Version: 0.0.1"
+			font_name: "Candy.ttf"
+			#font_name: "Goth.ttf"
+			font_size: "15sp"
+			pos_hint: {"center_x":.95,"center_y":.98}
+			halign: "center"
+			theme_text_color: "Custom"
+			text_color: 193/255, 56/255, 60/255, 1
+		MDLabel:
+			text: "K10 Bridge Project"
+			font_name: "BBeauty.ttf"
+			font_size: "60sp" if root.width < 700 else "90sp" if root.width < 950 else "120sp"
+			pos_hint: {"center_x":.607,"center_y":.51}
+			halign: "center"
+			theme_text_color: "Custom"
+			text_color: 253/255, 156/255, 60/255, 1
+		MDTextButton:
+			text: "Appuyer pour Commencer ..."
+			#font_name: "Goth.ttf"
+			font_size: "20sp"
+			pos_hint: {"center_x":.5,"center_y":.08}
+			halign: "center"
+			theme_text_color: "Custom"
+			text_color: 53/255, 56/255, 60/255, 1
+			on_release: app.switch_screen("mainscreen")

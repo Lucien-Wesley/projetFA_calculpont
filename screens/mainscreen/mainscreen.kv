@@ -1,0 +1,61 @@
+<MainScreen>:
+    name: 'mainscreen'
+
+    MDGridLayout:
+        cols: 1
+        md_bg_color: app.theme_cls.bg_normal
+        MDBoxLayout:
+            size_hint_y: .4
+            MDLabel:
+                text: "BIENVENU"
+                font_size: dp(30)
+                color: .3, .5, .8, 1
+                halign: "center"
+                bold: True
+            MDLabel:
+                text: "Ce petit logiciel nous l'avons conçu dans le cadre d'avoir une bonne experience utilisateur lors de la presentation de notre projet de fin d'année qui est était celui de concevoir et de dimensionner un pont en treillis. Apres avoir conçu quelques modeles nous avons decider de generaliser un peu le cas. Octave et d'autre nous offrent un la possibilité d'avoir de concevoir un code qui nous permet de faire des calculs, mais nous avons heurter un petit problème la lecture un peu difficile quand on a beaucoup des valeurs à afficher, et parfois il fallait rentrer dans le programme pour modifier une valeur puis reexecuter. Mais avec ce petit logiciel dans lequel nous avons introduit le meme formule nous permet de le faire mais bien."
+                halign: "center"
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDLabel:
+                text: "Choisissez un modèle"
+                font_size: dp(20)
+                size_hint_y: .2
+                color: .3, .55, .7, 1
+                halign: "center"
+                bold: True
+            MDFloatLayout:
+                MDFillRoundFlatButton:
+                    text: "Modèle Howe"
+                    font_name: "Goth.ttf"
+                    font_size: "16sp" #if root.width < 700 else "24sp" if root.width < 950 else "36sp"
+                    pos_hint: {"center_x":.405,"center_y":.76}
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 253/255, 206/255, 160/255, 1
+                    on_press:
+                        app.model = 1
+                        app.switch_screen("modelscreen")
+                Image:
+                    source: "howe.png"
+                    pos_hint: {"center_x":.695,"center_y":.76}
+                    size_hint_y: .3
+                MDFillRoundFlatButton:
+                    text: "Modèle Pratt"
+                    font_name: "Goth.ttf"
+                    font_size: "16sp" #if root.width < 700 else "24sp" if root.width < 950 else "36sp"
+                    pos_hint: {"center_x":.405,"center_y":.51}
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 253/255, 206/255, 160/255, 1
+                    on_press:
+                        app.model = 2
+                        app.switch_screen("modelscreen")
+
+                Image:
+                    source: "pratt.png"
+                    pos_hint: {"center_x":.695,"center_y":.51}
+                    size_hint_y: .3
+
+
+
